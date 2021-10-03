@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move To Test</title>
+    <style>
+        body,html {
+            background: #000;
+        }
+        canvas {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+    <canvas width="220px" height="240px" id="canvas"></canvas>
+
+    <script>
+
+
+        // context.lineWidth = 2;
+        // context.strokeStyle = "rgb(255,127,127)";    
+        // context.fillRect();
+
+        var position = {
+            x:110,
+            y:120
+        }
+        var target = {
+            x:110,
+            y:120
+        }
+        var distance = {
+            x:0,
+            y:0
+        }
+        var direction = {
+            x:1,
+            y:1
+        }
+
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext( '2d' );
+        context.fillStyle = "rgb(20,20,20)";
+
+        canvas.addEventListener('click',function (evt) {
+            const clientRect = canvas.getBoundingClientRect()
+            target = {
+                x: evt.clientX - clientRect.left +1,
+                y: evt.clientY - clientRect.top +1
+            };
+            console.log("target: ", target);
+            console.log("position: ", position);
+        })
+
+        //========== draw loop ==========//
+
+        var speed = {x:0,y:0}
+        var maxSpeed = {x:28,y:28}
+        var paddingDistance = {x:2,y:2};
+        var acceleration = {x:4,y:4}
+
+        var last = Date.now();
+
+        function init() {
+            var now = Date.now();
+            var delta = (now - last)/1000;
+            last = now;
+
+            distance.x = Math.abs(target.x - position.x);
+            distance.y = Math.abs(target.y - position.y);
+            direction.x = (target.x - position.x) > 0 ? 1 : -1;
+            direction.y = (target.y - position.y) > 0 ? 1 : -1;
+
+            if(distance.x >= paddingDistance.x + acceleration.x) {
+
+                // 최고속도 이하이면 가속
+                if(Math.abs(speed.x) < maxSpeed.x) {
+                    speed.x += acceleration.x * direction.x;
+                }
+                // 최고속도 유지
+                else {
+                    speed.x = maxSpeed.x * direction.x;
+                }
+
+            } else {
+                if(Math.abs(speed.x)>0) {
+                    speed.x -= speed.x / paddingDistance.x / paddingDistance.x * direction.x ;
+                }
+            }
+
+            if(distance.y >= paddingDistance.y + acceleration.y) {
+
+                // 최고속도 이하이면 가속
+                if(Math.abs(speed.y) < maxSpeed.y) {
+                    speed.y += acceleration.y * direction.y;
+                }
+                // 최고속도 유지
+                else {
+                    speed.y = maxSpeed.y * direction.y;
+                }
+
+                } else {
+                    if(Math.abs(speed.y)>0) {
+                        speed.y -= speed.y / paddingDistance.y / paddingDistance.y ;
+                    }
+            }
+                
+
+
+            // move & draw
+            position.x += speed.x * delta;
+            position.y += speed.y * delta;
+            context.clearRect(0,0,220,240);
+            context.fillRect(position.x-5, position.y-5, 10, 10);
+
+
+            window.requestAnimationFrame(init);
+        }
+        init();
+
+    </script>
+    
+</body>
+</html>

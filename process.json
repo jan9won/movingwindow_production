@@ -1,0 +1,13 @@
+{
+    "apps": [
+        {
+            "name": "mvw-jeeliz",
+            "script": "server.js",
+            "watch": true,
+            "ignore_watch" : ["public","src","node_modules"],
+            "watch_options": {
+                "followSymlinks": false
+            }
+        }
+    ]
+}

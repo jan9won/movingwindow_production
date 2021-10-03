@@ -1,0 +1,45 @@
+{
+  "name": "face",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve",
+    "build": "webpack --config ./webpack.config.production.js",
+    "build-jeeliz": "webpack --config ./webpack.config.jeeliz.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/fiber": "^7.0.1",
+    "css-loader": "^5.2.6",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.0",
+    "node-sass": "^6.0.0",
+    "qrcode": "^1.4.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "serialport": "^9.0.7",
+    "style-loader": "^2.0.0",
+    "three": "^0.133.0",
+    "url-loader": "^4.1.1",
+    "ws": "^7.4.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "compression-webpack-plugin": "^9.0.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.39.0",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "description": ""
+}
