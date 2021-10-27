@@ -11,8 +11,7 @@ const App = () => {
   <div id="App">
     <nav>
       <ul>
-        <li><a href="">home</a></li>
-        <li><a href="">blog</a></li>
+        <li><a href="">about</a></li>
         <li><a href="/movingWindow">try it yourself</a></li>
       </ul>
     </nav>
