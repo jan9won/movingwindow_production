@@ -1,6 +1,5 @@
 import React, {useState,useEffect,Suspense,useRef} from 'react'
 import MainCanvas from "./MainCanvas";
-import Spinner from "./spinner.gif"
 import "../public/homepage/main.sass";
 import {images, video} from "../public/homepage/index.js";
 
