@@ -16,7 +16,7 @@ const Main = (props) => {
 	useEffect(()=>{
 	    let retryTimer = setTimeout(()=>{
 	        if(!canvasRef.current) {
-	            window.location = "/home"
+	            window.location.href = window.location.pathname
 	        }
 	    },7000)
 	    return () => {
