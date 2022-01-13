@@ -48,12 +48,10 @@ const Main = (props) => {
 			className={mainOpacity ? "opacity-0" : "opacity-100"}
 		> scroll down | 스크롤하세요 </div>
 		
-		<Suspense fallback={<img src={Spinner} id="spinner"/>}>
-    	<MainCanvas
-				ref = {canvasRef}
-      	scrollValue={scrollValue}  mainOpacity={mainOpacity}
-			/>
-		</Suspense>
+    <MainCanvas
+			ref = {canvasRef}
+     	scrollValue={scrollValue}  mainOpacity={mainOpacity}
+		/>
    	
 		<main
 			ref={mainRef}

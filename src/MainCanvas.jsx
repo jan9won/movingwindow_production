@@ -17,7 +17,6 @@ const MainCanvas = React.forwardRef((props,ref) => {
 
   return (
     <Canvas
-		  ref={ref}
 		  className={props.mainOpacity ? "opacity-0" : "opacity-100"}
       onCreated={({ gl }) => {
         gl.toneMapping = null ;
@@ -32,9 +31,12 @@ const MainCanvas = React.forwardRef((props,ref) => {
       >
       
       <pointLight position={[0, 200, 200]} />
-
-        <Actuator scrollValue={props.scrollValue}/>
-				<Dolly scrollValue={props.scrollValue}/>
+			<Suspense fallback={<img src={Spinner} id="spinner"/>}>
+        <Actuator
+		  		ref={ref}
+					scrollValue={props.scrollValue}/>
+			</Suspense>
+			<Dolly scrollValue={props.scrollValue}/>
     </Canvas>
   )
 })
