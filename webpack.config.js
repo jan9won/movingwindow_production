@@ -44,7 +44,7 @@ module.exports = {
                 ],
             },
             { // 4. url assets
-                test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, 
+                test: /\.(png|woff|woff2|eot|ttf|svg|gif|mp4)$/, 
                 use: ['url-loader?limit=100000']
             },
         ],

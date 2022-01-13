@@ -1,26 +1,31 @@
-import React, { Suspense } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
+import React, { Suspense, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import Actuator from "./Actuator"
 
-const MainCanvas = (props) => {
+const Dolly = (props) => {
+  // This one makes the camera move in and out
+  useFrame(({ camera }) => {
+		if(props.scrollValue < 720){
+			camera.position.z = 200-props.scrollValue
+		} else {
+			camera.position.z = -520 
+		}
+  })
+  return null
+}
+const MainCanvas = React.forwardRef((props,ref) => {
 
   return (
     <Canvas
+		  ref={ref}
+		  className={props.mainOpacity ? "opacity-0" : "opacity-100"}
       onCreated={({ gl }) => {
         gl.toneMapping = null ;
         gl.antialias = false;
       }}
       pixelRatio={window.devicePixelRatio}
-      style={{
-        position:'fixed',
-        zIndex:90,
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh'
-      }}
       camera={{
-        position:[0,0, 0],
+        position:[0,0,0],
         fov:30,
         far:2000
       }}
@@ -28,12 +33,10 @@ const MainCanvas = (props) => {
       
       <pointLight position={[0, 200, 200]} />
 
-        <Actuator 
-        setMainOpacity={props.setMainOpacity}
-        />
-
+        <Actuator scrollValue={props.scrollValue}/>
+				<Dolly scrollValue={props.scrollValue}/>
     </Canvas>
   )
-}
+})
 
 export default MainCanvas;

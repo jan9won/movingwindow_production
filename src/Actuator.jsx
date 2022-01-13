@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React  from 'react'
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -6,37 +6,10 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 const Actuator = (props) => {
 
-  const actuatorRef = useRef();
-  const scrollRatio = 1.5;
-  const scrollLimit = 720;
+//  onmousemove = (evt) => {
+//    console.log(evt.clientX/window.innerWidth,evt.clientY/window.innerHeight);
+//  }
 
-  onscroll = (evt) => {
-    console.log(window.scrollY);
-    // console.log(evt);
-    if(actuatorRef.current){
-      if(window.scrollY<scrollLimit){
-        actuatorRef.current.position.z = -560 + window.scrollY/scrollRatio ;
-        props.setMainOpacity(0);
-      } else {
-        actuatorRef.current.position.z = -560 + scrollLimit/scrollRatio;
-        props.setMainOpacity(1);
-      }
-    }
-  }
-  onmousemove = (evt) => {
-    console.log(evt.clientX/window.innerWidth,evt.clientY/window.innerHeight);
-  }
-  
-  try{
-      ontouchmove = (evt) => {
-      console.log(
-        evt.changedTouches[0].clientX/window.innerWidth,
-        evt.changedTouches[0].clientY/window.innerHeight
-      );
-    }
-  } catch {
-    console.log('not mobile no touch');
-  }
 
   const { nodes } = useLoader(GLTFLoader, "/assets/actuator_model/compressed.glb", loader => {
 		const dracoLoader = new DRACOLoader();
@@ -44,7 +17,7 @@ const Actuator = (props) => {
 		loader.setDRACOLoader(dracoLoader);
 	});
   return (
-    <mesh ref={actuatorRef} name="frame" position={[0,-66,-560]} rotation={[-Math.PI/2,0,0]}>
+    <mesh name="frame" position={[0,-66,-560]} rotation={[-Math.PI/2,0,0]}>
       <bufferGeometry attach="geometry" {...nodes['1_frame'].geometry} />
       <meshStandardMaterial attach="material" {...nodes['1_frame'].material} name="Material" />
       <mesh name="vertical" position={[0,-5,68]}>
