@@ -646,7 +646,7 @@ function init_faceFilter(bestVideoSettings,callback){
 	
 		callbackReady: function(errCode, spec){ // called once
 			
-			if (errCode){ console.error(errCode); return; }
+			if (errCode === "WEBCAM_UNAVAILABLE"){ window.alert("You need webcam to play. Please use your mobile phone. \n 재생을 위해서는 카메라가 필요합니다. 모바일에서 접속해주세요.") ; console.error(errCode); return; }
 			console.log('INFO: JEELIZFACEFILTER IS READY');
 
             // JEELIZFACEFILTER.set_scanSettings({
