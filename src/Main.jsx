@@ -82,10 +82,12 @@ const Main = (props) => {
       </div>
 			<div id="design">
 				<h2>Design</h2>
-				<p>It was carefully designed with audience interaction and durability in mind</p>
+				<p>Actuator was carefully designed with audience interaction and durability in mind</p>
 				{
-					images.slice(4,8).map((image,idx)=><img key={idx} src={image}></img>)
+					images.slice(4,7).map((image,idx)=><img key={idx} src={image}></img>)
 				}
+				<p>Models and Animations were exported with GLTF and mixed with ThreeJS's animation mixer</p>
+				<img src={images[7]}></img>
 			</div>
       <div id="tech">
         <h2>Open Sourced Software Used in This Project</h2>
