@@ -100,30 +100,32 @@ const Main = (props) => {
 				<p>Models and Animations were exported with GLTF and mixed with ThreeJS's animation mixer</p>
 				<img src={images[7]}></img>
 			</div>
-      <div id="tech">
-        <h2>Open Sourced Software Used in This Project</h2>
-        <p>
-          <em>Networks</em>
-          <br /> - Nodejs with Express and WebSocket
-					<br /> - Nginx
-          <br /> <br />
-          <em>Drawing on Canvas</em>
-          <br /> - JeelizFaceFilter
+		<div id="tech">
+			<h2>Open Sourced Software Used in This Project</h2>
+			<p>
+				<em>Networks</em>
+					<br /> - Nodejs with Express and Serial IO
+					<br /> - Nginx with Certbot Auto Renewal
+					<br /> <br />
+				<em>Face Tracking and Canvas Draw</em>
+					<br /> - JeelizFaceFilter
 					<br /> - Three.js
-          <br /> <br />
-          <em>This Webpage</em>
-          <br /> - React with react-three-fiber
-					<br /> - Webpack with SCSS and other asset loaders
-          <br /> <br />
-          <em>Modeling and Design</em>
+					<br /> - Tween.js
+					<br /> <br />
+				<em>This Webpage</em>
+					<br /> - React with react-three-fiber
+					<br /> - Webpack with various Loaders and Plugins
+					<br /> - Draco CLI Compressor and WASM Decompressor
+					<br /> <br />
+				<em>Modeling and Design</em>
 					<br /> - Tinkercad for Actuator Design
 					<br /> - Blender for Contents Modeling
-          <br /> <br />
-					<em>Micro Controller</em>
-          <br /> - Arduino Runtime
-					<br /> - Motor Drivers and AccelStepper Library
-        </p>
-      </div>
+					<br /> <br />
+				<em>Micro Controller</em>
+					<br /> - Arduino IDE and Runtime
+					<br /> - Stepper Motor Drivers and AccelStepper Library
+			</p>
+		</div>
     </main>
 
 		</div>
