@@ -6,16 +6,16 @@ import Spinner from "./spinner.gif"
 
 const Main = (props) => {
 
-	const canvasRef = useRef();
 	const mainRef = useRef();
 	const bgRef = useRef();
-
+	
+	const [isLoaded, setIsLoaded] = useState(false)
 	const [mainOpacity, setMainOpacity] = useState(false);
 	const [scrollValue, setScrollValue] = useState(0);
 	
 	useEffect(()=>{
 	    let retryTimer = setTimeout(()=>{
-	        if(!canvasRef.current) {
+	        if(!isLoaded) {
 	            window.location.href = window.location.pathname
 	        }
 	    },7000)
@@ -41,7 +41,7 @@ const Main = (props) => {
 		<img
 			src={Spinner}
 			id="spinner" 
-			className={canvasRef.current ? "opacity-0" : "opacity-100"}
+			className={isLoaded ? "opacity-0" : "opacity-100"}
 		/>
     <h1
 				className={mainOpacity ? "opacity-0" : "opacity-100"}
@@ -53,14 +53,14 @@ const Main = (props) => {
 		> scroll down | 스크롤하세요 </div>
 		
     <MainCanvas
-			ref = {canvasRef}
+			setIsLoaded = {setIsLoaded}
      	scrollValue={scrollValue}  mainOpacity={mainOpacity}
 		/>
    	
 		<main
 			ref={mainRef}
 	 		style={{
-				height: canvasRef.current ? "auto" : "0"
+				height: isLoaded ? "auto" : "0"
 			}}	
 			className={mainOpacity ? "opacity-100" : "opacity-0"}
 			>

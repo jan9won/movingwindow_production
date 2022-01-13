@@ -1,5 +1,5 @@
-import React, { Suspense, useRef } from 'react'
-import { Canvas, useFrame, extend } from '@react-three/fiber'
+import React, { Suspense } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import Actuator from "./Actuator"
 
 
@@ -14,7 +14,7 @@ const Dolly = (props) => {
   })
   return null
 }
-const MainCanvas = React.forwardRef((props,ref) => {
+const MainCanvas = (props) => {
 
   return (
     <Canvas
@@ -33,13 +33,14 @@ const MainCanvas = React.forwardRef((props,ref) => {
       
       <pointLight position={[0, 200, 200]} />
 			<Suspense fallback={null}>
-        <Actuator
-		  		ref={ref}
-					scrollValue={props.scrollValue}/>
+        		<Actuator
+        			setIsLoaded={props.setIsLoaded}
+					scrollValue={props.scrollValue}
+				/>
 			</Suspense>
 			<Dolly scrollValue={props.scrollValue}/>
     </Canvas>
   )
-})
+}
 
 export default MainCanvas;

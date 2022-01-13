@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, {useEffect}  from 'react'
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -10,12 +10,16 @@ const Actuator = (props) => {
 //    console.log(evt.clientX/window.innerWidth,evt.clientY/window.innerHeight);
 //  }
 
-
   const { nodes } = useLoader(GLTFLoader, "/assets/actuator_model/compressed.glb", loader => {
 		const dracoLoader = new DRACOLoader();
 		dracoLoader.setDecoderPath('/assets/actuator_model/');
 		loader.setDRACOLoader(dracoLoader);
 	});
+	
+	useEffect(()=>{
+		props.setIsLoaded(true)
+	},[nodes])
+
   return (
     <mesh name="frame" position={[0,-66,-560]} rotation={[-Math.PI/2,0,0]}>
       <bufferGeometry attach="geometry" {...nodes['1_frame'].geometry} />
