@@ -16,8 +16,7 @@ const Main = (props) => {
 	useEffect(()=>{
 		let retryTimer = setTimeout(()=>{
 			if(!isLoaded) {
-				// window.location.href = window.location.pathname
-				window.alert(isLoaded)
+				window.location.href = window.location.pathname
 			}
 		},5000);
 	    return () => clearTimeout(retryTimer);
