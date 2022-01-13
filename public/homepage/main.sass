@@ -21,7 +21,7 @@ html, body, #root, #App
     left: 0
     width: 100vw
     height: 100vh
-    background: rgb(39, 39, 39)
+    background: #111111
     color: #ffffff
     font-family: "Roboto", sans-serif
     overflow-x: hidden
@@ -41,8 +41,11 @@ ul, li
 
 blockquote
     color: #DDDDDD
+    border-left: 3px solid #cccccc
+    margin: 1.5em 0px
+    padding: 0.5em 20px
 
-blockquote em
+blockquote em:nth-child(4)
     display: inline-block
     margin: 20px 0 10px 0
 
@@ -116,16 +119,16 @@ main
     opacity: 0
     padding: 20px 20px
     padding-top: 50vh
-    width: calc( 100% - 40px )
+    max-width: 500px 
     height: 100vh
     display: flex
     flex-direction: column
-    align-items: center
+    align-items: start
     overflow-y: hidden
+    margin: auto
     
 main *
     max-width: 500px
-    align-self: stretch
 
 main h2
     color: #00c291
@@ -141,6 +144,7 @@ main p
     left: 50%
     top: 50%
     transform: translate(-50%,-50%)
+    width: 200px
 
 img, video
     width: 100%

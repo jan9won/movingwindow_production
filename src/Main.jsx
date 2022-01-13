@@ -29,7 +29,9 @@ const Main = (props) => {
 			onScroll={onScrollCallback}
 		>
 
-    <h1>THE<br/>MOVING<br/>WINDOW</h1>
+    <h1
+				className={mainOpacity ? "opacity-0" : "opacity-100"}
+		>THE<br/>MOVING<br/>WINDOW</h1>
 		
     <div 
 			id="scroll"
@@ -39,7 +41,7 @@ const Main = (props) => {
 		<Suspense fallback={<img src={Spinner} id="spinner"/>}>
     	<MainCanvas
 				ref = {canvasRef}
-      	scrollValue={scrollValue}  mainOpacity={props.mainOpacity}
+      	scrollValue={scrollValue}  mainOpacity={mainOpacity}
 			/>
 		</Suspense>
    	
