@@ -1,4 +1,4 @@
-import React, {useState,Suspense,useRef} from 'react'
+import React, {useState,useEffect,Suspense,useRef} from 'react'
 import MainCanvas from "./MainCanvas";
 import Spinner from "./spinner.gif"
 import "../public/homepage/main.sass";
@@ -12,7 +12,17 @@ const Main = (props) => {
 
 	const [mainOpacity, setMainOpacity] = useState(false);
 	const [scrollValue, setScrollValue] = useState(0);
-
+	
+	useEffect(()=>{
+	    let retryTimer = setTimeout(()=>{
+	        if(!canvasRef.current) {
+	            window.location = "/home"
+	        }
+	    },7000)
+	    return () => {
+            clearTimeout(retryTimer);
+        };
+	},[])
 
 	console.log(mainRef)
 
