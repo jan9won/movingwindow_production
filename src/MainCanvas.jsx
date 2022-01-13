@@ -1,7 +1,9 @@
 import React, { Suspense, useRef } from 'react'
 import Spinner from "./spinner.gif"
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, extend } from '@react-three/fiber'
 import Actuator from "./Actuator"
+
+extend({ Spinner })
 
 const Dolly = (props) => {
   // This one makes the camera move in and out
