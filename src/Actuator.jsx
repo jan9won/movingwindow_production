@@ -10,15 +10,16 @@ const Actuator = (props) => {
 //    console.log(evt.clientX/window.innerWidth,evt.clientY/window.innerHeight);
 //  }
 
-  const { nodes } = useLoader(GLTFLoader, "/assets/actuator_model/compressed.glb", loader => {
+	const texture = useLoader(GLTFLoader, "/assets/actuator_model/compressed.glb", loader => {
 		const dracoLoader = new DRACOLoader();
 		dracoLoader.setDecoderPath('/assets/actuator_model/');
 		loader.setDRACOLoader(dracoLoader);
 	});
-	
 	useEffect(()=>{
 		props.setIsLoaded(true)
-	},[nodes])
+	},texture)
+
+	const { nodes } = texture
 
   return (
     <mesh name="frame" position={[0,-66,-560]} rotation={[-Math.PI/2,0,0]}>

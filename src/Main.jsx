@@ -9,18 +9,19 @@ const Main = (props) => {
 	const mainRef = useRef();
 	const bgRef = useRef();
 	
-	const [isLoaded, setIsLoaded] = useState(false)
+	const [isLoaded, setIsLoaded] = useState(false);
 	const [mainOpacity, setMainOpacity] = useState(false);
 	const [scrollValue, setScrollValue] = useState(0);
-	
+
 	useEffect(()=>{
-	    let retryTimer = setTimeout(()=>{
-	        if(!isLoaded) {
-	            window.location.href = window.location.pathname
-	        }
-	    },7000)
+		let retryTimer = setTimeout(()=>{
+			if(!isLoaded) {
+				// window.location.href = window.location.pathname
+				window.alert(isLoaded)
+			}
+		},5000);
 	    return () => clearTimeout(retryTimer);
-	},[])
+	},[isLoaded])
 
 	console.log(mainRef)
 
@@ -52,7 +53,8 @@ const Main = (props) => {
 		
     <MainCanvas
 			setIsLoaded = {setIsLoaded}
-     	scrollValue={scrollValue}  mainOpacity={mainOpacity}
+			scrollValue={scrollValue}
+			mainOpacity={mainOpacity}
 		/>
    	
 		<main
