@@ -1,9 +1,7 @@
 import React, { Suspense, useRef } from 'react'
-import Spinner from "./spinner.gif"
 import { Canvas, useFrame, extend } from '@react-three/fiber'
 import Actuator from "./Actuator"
 
-extend({ Spinner })
 
 const Dolly = (props) => {
   // This one makes the camera move in and out
@@ -34,7 +32,7 @@ const MainCanvas = React.forwardRef((props,ref) => {
       >
       
       <pointLight position={[0, 200, 200]} />
-			<Suspense fallback={<img src={Spinner} id="spinner"/>}>
+			<Suspense fallback={null}>
         <Actuator
 		  		ref={ref}
 					scrollValue={props.scrollValue}/>

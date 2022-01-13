@@ -2,6 +2,7 @@ import React, {useState,useEffect,Suspense,useRef} from 'react'
 import MainCanvas from "./MainCanvas";
 import "../public/homepage/main.sass";
 import {images, video} from "../public/homepage/index.js";
+import Spinner from "./spinner.gif"
 
 const Main = (props) => {
 
@@ -37,7 +38,11 @@ const Main = (props) => {
 			ref={bgRef}
 			onScroll={onScrollCallback}
 		>
-
+		<img
+			src={Spinner}
+			id="spinner" 
+			className={canvasRef.current ? "opacity-0" : "opacity-100"}
+		/>
     <h1
 				className={mainOpacity ? "opacity-0" : "opacity-100"}
 		>THE<br/>MOVING<br/>WINDOW</h1>
