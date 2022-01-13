@@ -36,7 +36,7 @@ const Main = (props) => {
     <div 
 			id="scroll"
 			className={mainOpacity ? "opacity-0" : "opacity-100"}
-		> scroll down to see more </div>
+		> scroll down | 스크롤하세요 </div>
 		
 		<Suspense fallback={<img src={Spinner} id="spinner"/>}>
     	<MainCanvas

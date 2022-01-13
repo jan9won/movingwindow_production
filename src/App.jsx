@@ -7,8 +7,8 @@ const App = () => {
   <div id="App">
     <nav>
       <ul>
-        <li><a href="https://neolambda.studio">Blog</a></li>
-        <li><a href="/movingWindow">Try It Yourself</a></li>
+        <li><a href="https://neolambda.studio">Blog | 블로그</a></li>
+        <li><a href="/movingWindow">Try It | 체험하기</a></li>
       </ul>
     </nav>
 		
