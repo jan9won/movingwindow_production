@@ -19,9 +19,7 @@ const Main = (props) => {
 	            window.location.href = window.location.pathname
 	        }
 	    },7000)
-	    return () => {
-            clearTimeout(retryTimer);
-        };
+	    return () => clearTimeout(retryTimer);
 	},[])
 
 	console.log(mainRef)
