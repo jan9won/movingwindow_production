@@ -36,21 +36,24 @@ const Main = (props) => {
 			ref={bgRef}
 			onScroll={onScrollCallback}
 		>
-		<img
-			src={Spinner}
-			id="spinner" 
-			className={isLoaded ? "opacity-0" : "opacity-100"}
-		/>
-    <h1
-				className={mainOpacity ? "opacity-0" : "opacity-100"}
-		>THE<br/>MOVING<br/>WINDOW</h1>
-		
-    <div 
+		{
+			isLoaded 
+			? <img src={Spinner} id="spinner" />
+			: null
+		}
+    	<h1
+			className={mainOpacity ? "opacity-0" : "opacity-100"}
+			>THE<br/>MOVING<br/>WINDOW
+		</h1>
+			
+    	<div 
 			id="scroll"
 			className={mainOpacity ? "opacity-0" : "opacity-100"}
-		> scroll down | 스크롤하세요 </div>
+		> 
+			scroll down | 스크롤하세요 
+		</div>
 		
-    <MainCanvas
+    	<MainCanvas
 			setIsLoaded = {setIsLoaded}
 			scrollValue={scrollValue}
 			mainOpacity={mainOpacity}
@@ -69,28 +72,30 @@ const Main = (props) => {
 				<blockquote>
 					<em>EN</em> 
 					<br/>
-					A sense of depth and perspective is provided with viewer's movement. A spirit animal over the sceen follows the viewer and transforms by the perspective.
+					Screen moves along the audience. A sense of depth and perspective is provided with the audience's movement. An animal over the sceen follows the viewer and transforms by the position.
 					<br/>
 					<em>KR</em>
 					<br/>
-					관객의 움직임에 따라 깊이감이 느껴지는 화면, 화면 너머의 영적 동물이 관객의 시점에 따라 변화한다.
+					화면이 관객을 따라 움직인다. 관객의 움직임에 따라 화면 속 깊이감이 느껴진다. 화면 너머의 영적 동물이 관객의 위치에 따라 변화한다.
 				</blockquote>
 			</div>
-      <div id="about">
-        <h2>About</h2>
-        <p>
-				  <em>Artist</em> <br/>
-					Jangwon Suh (서장원) <br/> <br/>
-					<em>Exhibition</em> <br/>
-					Feb 2021, Seoul <br/> <br/>
-					<em>Material</em> <br/>
-					- Aluminum Profiles <br/>
-					- 3D Printed Joints and Frames <br/>
-					- Arduino Uno with Stepper Motors <br/>
-					- Arduino Mega with Various Sensors <br/>
-					- Ipad Air 2 with an LED Light <br/><br/>
-        </p>
-      </div>
+		<div id="about">
+			<h2>About</h2>
+			<p>
+				<em>Artist</em> <br/>
+				Jangwon Suh (서장원) <br/> <br/>
+				<em>Format</em> <br/>
+				Interactive Installation <br/> <br/>
+				<em>Material</em> <br/>
+				- Aluminum Profiles <br/>
+				- 3D Printed Joints and Frames <br/>
+				- Arduino Uno with Stepper Motors <br/>
+				- Arduino Mega with Various Sensors <br/>
+				- Ipad Air 2 with an LED Light <br/><br/>
+				<em>Exhibition</em> <br/>
+				Feb 2021, Seoul <br/> <br/>
+			</p>
+		</div>
 			<div id="design">
 				<h2>Design</h2>
 				<p>Actuator was carefully designed with audience interaction and durability in mind</p>

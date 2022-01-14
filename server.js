@@ -68,6 +68,7 @@ var faceToStep = 500;
 
 /*=============== Express : Settings ===============*/
 
+// parse body
 const parseBody = (req,res,next)=>{
     let data = '';
     req.on('data',(chunk)=>{
@@ -81,7 +82,7 @@ const parseBody = (req,res,next)=>{
 };
 
 
-
+// public redirect
 express.get('/assets/*', function (req, res) {
     const loc = req.url.replace('\/assets\/','')
     res.sendFile(path.resolve(
@@ -89,15 +90,15 @@ express.get('/assets/*', function (req, res) {
     ));
 });
 
-
+// routers
 const router = Express.Router();
 express.use('/',router);
-
 router.use('/public',Express.static(path.join(path.resolve(),'public')));
 router.use('/home', (req,res)=>{ 
     res.sendFile(path.join(__dirname,'public/dist/index.html'));
 });
 
+// listen
 express.listen(50000,()=>{console.log('[mvw-jeeliz]',50000);});
 
 

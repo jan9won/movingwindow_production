@@ -13,8 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
 
     <!-- Manifests & Icons -->
-    <link rel="manifest" href="../public/pwa.webmanifest">
-    <link rel="shortcut icon" href="../public/icons/icon-32.png" type="image/x-icon">  
+    <link rel="manifest" href="https://themovingwindow.com/assets/pwa.webmanifest">
+    <link rel="shortcut icon" href="https://themovingwindow.com/assets/icons/icon-32.png" type="image/x-icon">  
+
+    <meta property="og:title" content="The Moving Window">
+    <meta property="og:site_name" content="The Moving Window | try it yourself">
+    <meta property="og:url" content="https://themovingwindow.com">
+    <meta property="og:description" content="The Moving Window is an Interactive Installation artwork. Screen moves along the audience and a sense of depth and perspective is given.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://themovingwindow.com/assets/homepage/meta.png">
 
     <!-- This is imported is main script : gltf loader needs three.module.js and three.module.js does not exports nams THREE, and three.min.js does not exports names GLTF loader needs -->
     <!-- <script type="module" src="../public/threejs/build/three.module.js"></script> --> 
@@ -27,14 +34,13 @@
     <!-- module import is added in this helper for is module system, imports should be written in each file.-->
     <script type="module" src="../public/jeelizFaceFilter/helpers/JeelizThreeHelper.js"></script>
     
-    <!-- QR code -->
+    <!-- QR code Generator -->
     <script src="../public/qrcodegen.js"></script>
 
     <script>
         const exhibition = false;
         const development = false;
         document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + "px");
-
     </script>
 
     <script type="module" src="../public/main.js"></script>
